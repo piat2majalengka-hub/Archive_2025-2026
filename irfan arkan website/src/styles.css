@@ -1,0 +1,294 @@
+/* ...existing code... */
+
+/* 
+  styles.css
+  - Dirancang sebagai contoh unik dan edukatif untuk menjelaskan dasar-dasar CSS kepada siswa.
+  - Berisi: variabel, box model, layout (flex), tipografi, warna, pseudo-class, transisi, responsive.
+*/
+
+/* =========================
+   1. Variabel (CSS custom properties)
+   ========================= */
+:root{
+  --bg: #0bb3e7;   /* latar belakang utama (gelap) */
+  --card: #de5388;  /* latar kartu/sektion */
+  --accent: #7dd3fc;       /* aksen biru muda */
+  --accent-2: #60a5fa;     /* aksen biru kedua */
+  --muted: #9aa7b2;        /* teks sekunder */
+  --text: #b2b2b2;         /* teks utama */
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+  --max-width: 900px;
+  --gap: 18px;
+  --shadow: 0 6px 24px rgba(2,6,23,0.6);
+  --transition: 200ms ease;
+}
+
+/* =========================
+   2. Reset & Box model
+   ========================= */
+*,
+*::before,
+*::after{
+  box-sizing: border-box; /* menjelaskan box model: padding + border termasuk ukuran elemen */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;               /* hilangkan margin default browser */
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #000000 0%, #000000 100%), var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  padding: 32px 20px;
+}
+
+/* Container pusat */
+.container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  gap: var(--gap);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+/* =========================
+   3. Header & Nav (tipografi & spacing)
+   ========================= */
+header{
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.475), rgba(0, 0, 0, 0.53));
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+}
+
+header h1{
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: -0.3px;
+  color: var(--accent);
+}
+
+/* navigasi sederhana horizontal */
+nav{
+  display: flex;
+  gap: 12px;
+  margin: 12px 0 20px 0;
+  flex-wrap: wrap;
+}
+
+nav a{
+  text-decoration: none;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: transparent;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* pseudo-class :hover untuk interaksi */
+nav a:hover{
+  background: var(--glass);
+  color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   4. Main layout & sections (flex & cards)
+   ========================= */
+main{
+  display: grid;
+  gap: var(--gap);
+}
+
+/* setiap section dibungkus sebagai "card" untuk menunjukkan ketinggian, padding, border-radius */
+section{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(25, 73, 206, 0.5);
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* judul section: ukuran berbeda menjelaskan heading hierarchy */
+section h2{
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+/* paragraf dasar */
+p{
+  color: var(--text);
+  margin: 8px 0 12px 0;
+}
+
+/* contoh list styling */
+ul{
+  padding-left: 1.2rem;
+  margin: 8px 0;
+}
+
+/* =========================
+   5. Form (input, textarea, label)
+   - menjelaskan state: focus, placeholder, disabled
+   ========================= */
+form{
+  display: grid;
+  gap: 12px;
+}
+
+/* wrapper input */
+form > div{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* label jelas dan semantik */
+label{
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* input dasar */
+input[type="text"],
+input[type="email"],
+textarea{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+  resize: vertical;
+  min-width: 0;
+}
+
+/* placeholder styling */
+input::placeholder,
+textarea::placeholder{
+  color: rgba(255,255,255,0.25);
+  font-style: italic;
+}
+
+/* fokus: menjelaskan pseudo-class :focus */
+input:focus,
+textarea:focus{
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(96,165,250,0.08);
+  transform: translateY(-2px);
+}
+
+/* tombol dasar & interaksi */
+button{
+  display: inline-block;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #FF78AC;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* tombol saat hover/aktif */
+buttutt:hover{
+  transform: translateY(-3px);
+  opacity: 0.98;
+}
+
+button:active{
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+/* =========================
+   6. Utilities (kelas ringan untuk demonstrasi)
+   ========================= */
+.row{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.keterangan{
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* =========================
+   7. Footer
+   ========================= */
+footer{
+  margin-top: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* hr styling */
+footer hr{
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.03);
+  margin: 12px auto;
+  max-width: 320px;
+}
+
+/* =========================
+   8. Responsiveness (media query)
+   - menjelaskan breakpoint sederhana
+   ========================= */
+@media (min-width: 760px){
+  .container{
+    grid-template-columns: 1fr;
+  }
+
+  main{
+    grid-template-columns: 2fr 1fr; /* contoh: konten utama + kolom samping */
+    gap: 18px;
+  }
+
+  header h1{ font-size: 1.9rem; }
+}
+
+/* =========================
+   9. Accessibility hints (visual focus)
+   - visual focus untuk pengguna keyboard
+   ========================= */
+:focus{
+  outline: 3px solid rgba(125,211,252,0.12);
+  outline-offset: 3px;
+}
+
+/* =========================
+   10. Small interactive hint untuk siswa
+   - tambahkan efek micro-interaction saat hover pada section untuk eksperimen
+   - siswa bisa ubah nilai variabel di :root untuk melihat perubahan
+   ========================= */
+section:hover{
+  transform: translateY(-4px);
+  transition: transform 200ms ease;
+  box-shadow: 0 12px 36px rgba(2,6,23,0.65);
+}
+
+/* Catatan singkat untuk siswa:
+   - Ubah warna di :root untuk mengubah tema.
+   - Coba ubah border-radius atau shadow untuk melihat efek design.
+   - Fokus pada :hover dan :focus untuk
